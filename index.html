@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#245a46">
+  <title>Igelkotts Skolplattform</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="home-link">🦔 <span>Igelkotts<br><b>Skolplattform</b></span></a>
+    <button id="logout" class="button secondary hidden">Logga ut</button>
+  </header>
+
+  <main class="container">
+    <section id="setup-warning" class="notice hidden">
+      <h2>Supabase behöver konfigureras</h2>
+      <p>Fyll i projektets URL och publishable/anon key i <code>config.js</code>.</p>
+    </section>
+
+    <section id="login-view" class="login-layout">
+      <div class="welcome">
+        <div class="big-icon">🦔📚</div>
+        <p class="eyebrow">VÄLKOMMEN</p>
+        <h1>Skolvardagen<br>samlad på ett ställe.</h1>
+        <p>Schema, uppgifter, prov, meddelanden och information från skolan.</p>
+      </div>
+      <form id="login-form" class="panel">
+        <h2>Logga in</h2>
+        <label for="username">Användarnamn</label>
+        <input id="username" autocomplete="username" required>
+        <label for="password">Lösenord</label>
+        <input id="password" type="password" autocomplete="current-password" required>
+        <button class="button primary full">Logga in</button>
+        <p id="login-error" class="error" role="alert"></p>
+        <p class="muted small">Konton skapas av behörig skolpersonal.</p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="dashboard-heading">
+        <div><p class="eyebrow">DIN SKOLVARDAG</p><h1 id="welcome"></h1><p id="role-label" class="muted"></p></div>
+        <div id="avatar" class="avatar">🎓</div>
+      </div>
+      <div id="nav" class="module-grid"></div>
+      <section id="content" class="panel">
+        <h2>Välkommen!</h2>
+        <p>Välj en funktion ovan.</p>
+      </section>
+    </section>
+    <p id="toast" class="toast hidden" role="status"></p>
+  </main>
+
+  <footer><span>🦔 Igelkotts Skolplattform</span><span>En gemensam plats för skolan</span></footer>
+</body>
+</html>
